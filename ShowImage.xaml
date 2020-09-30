@@ -1,0 +1,32 @@
+﻿<UserControl x:Class="PDExper.ShowImage"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:PDExper"
+             xmlns:oxy="http://oxyplot.org/wpf"
+             mc:Ignorable="d" 
+             Background="Black"
+             d:DesignHeight="700" d:DesignWidth="800">
+    <Grid >
+
+        <ScrollViewer HorizontalScrollBarVisibility="Auto">
+            <StackPanel MaxWidth="600">
+                <ScrollViewer MaxHeight="90">
+                    <TextBlock x:Name="LogWindow" Background="Beige" Text="{Binding Log}" FontSize="10" />
+                </ScrollViewer>
+                <oxy:PlotView MinHeight="600" MinWidth="600" MaxWidth="600" MaxHeight="600"  Background="Black" x:Name="OxyView"  Model="{Binding ImageModel}"/>
+
+
+                    <Button Background="DarkSlateGray" Foreground="WhiteSmoke" Click="ExportPD_Click" Content="Export Portal Images" Name="ExportPD" />
+                <ComboBox x:Name="Courses" ItemsSource="{Binding Courses}" SelectedItem="{Binding SelectedCourse}" SelectionChanged="Courses_SelectionChanged"
+                  Background="LightSlateGray"/>
+                <ComboBox x:Name="PortalImages" ItemsSource="{Binding ModelsSource}" SelectedItem="{Binding SelectedModel}" SelectionChanged="PortalImages_SelectionChanged"
+                  Background="LightSlateGray">
+                        <!--<ComboBox x:Name="PortalImages" ItemsSource="{Binding ModelsSource}" SelectedItem="{Binding SelectedModel}" 
+                  SelectionChanged="PortalImages_SelectionChanged" Background="PaleGreen" Margin="212,76,188,988">-->
+                    </ComboBox>
+            </StackPanel>
+        </ScrollViewer>
+    </Grid>
+</UserControl>
